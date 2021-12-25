@@ -25,21 +25,22 @@ export const links = () => {
 };
 
 export const meta = () => {
-  const description = `Blogging about web development, design, and life.`;
+  const description = 'Blogging about web development, design, and life';
+  const keywords = 'devspace, blog, web development, design, life';
   return {
     description,
-    keywords: 'devspace blog',
+    keywords,
   };
 };
 
-function Document({ children, title = `DevSpace Blog` }) {
+function Document({ children, title }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <title>{title}</title>
         <Meta />
         <Links />
+        {title ? <title>{title}</title> : null}
       </head>
       <body>
         {children}
