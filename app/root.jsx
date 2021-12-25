@@ -1,6 +1,7 @@
 import { Links, LiveReload } from 'remix';
 
 import globalStylesUrl from './styles/globals.css';
+import tailwindStylesUrl from './styles/tailwind.css';
 
 export const links = () => {
   return [
