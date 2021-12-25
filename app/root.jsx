@@ -1,4 +1,15 @@
-import { LiveReload } from 'remix';
+import { Links, LiveReload } from 'remix';
+
+import globalStylesUrl from './styles/globals.css';
+
+export const links = () => {
+  return [
+    {
+      rel: 'stylesheet',
+      href: globalStylesUrl,
+    },
+  ];
+};
 
 export default function App() {
   return (

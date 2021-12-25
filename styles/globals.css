@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 p {
   margin: 15px 0;
   line-height: 1.8;

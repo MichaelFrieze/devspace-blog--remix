@@ -5,7 +5,4 @@ node_modules
 /public/build
 .env
 
-# PostCSS files get generated here
-/app/styles/**/*.css
-
 .DS_Store
