@@ -54,7 +54,7 @@ function Document({ children, title = `DevSpace Blog` }) {
 function Layout({ children }) {
   return (
     <>
-      <main className="min-h-screen -mb-16">{children}</main>
+      <main className="container mx-auto my-7">{children}</main>
     </>
   );
 }
