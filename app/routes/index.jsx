@@ -1,4 +1,4 @@
-import { useLoaderData } from 'remix';
+import { useLoaderData, Link } from 'remix';
 
 export const loader = () => {
   return [
@@ -21,10 +21,17 @@ export const meta = () => {
 
 export default function Index() {
   const posts = useLoaderData();
-  console.log(posts);
+
   return (
     <>
       <h1>Hello World</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <Link to={post.slug}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
