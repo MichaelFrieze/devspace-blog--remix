@@ -1,6 +1,6 @@
 export const meta = () => {
   return {
-    title: 'test-title',
+    title: 'DevSpace Blog',
   };
 };
 
