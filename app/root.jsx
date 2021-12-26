@@ -11,6 +11,8 @@ import {
 import globalStylesUrl from './styles/globals.css';
 import tailwindStylesUrl from './styles/tailwind.css';
 
+import Header from './components/header.jsx';
+
 export const links = () => {
   return [
     {
@@ -55,6 +57,7 @@ function Document({ children, title }) {
 function Layout({ children }) {
   return (
     <>
+      <Header />
       <main className="container mx-auto my-7">{children}</main>
     </>
   );
