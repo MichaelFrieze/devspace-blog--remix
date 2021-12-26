@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { sortByDate } from '@/utils/index';
+import { sortByDate } from '../utils';
 
 const files = fs.readdirSync(path.join('posts'));
 
