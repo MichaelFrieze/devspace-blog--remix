@@ -1,11 +1,32 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { sortByDate } from '../utils';
 
-const files = fs.readdirSync(path.join('posts'));
+const postsPath = path.join('posts');
 
-export function getPosts() {
+export async function getPosts() {
+  const files = await fs.readdir(postsPath);
+  return Promise.all(
+    files.map(async (filename) => {
+      const file = await fs.readFile(path.join(postsPath, filename), 'utf8');
+
+      const { data: frontmatter } = matter(file);
+
+      return {
+        slug: filename.replace('.md', ''),
+        frontmatter,
+      };
+    })
+  );
+}
+
+/* 
+
+export async function getPosts() {
+  const files = fs.readdirSync(postsPath);
+  console.log(files);
+
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
 
@@ -24,3 +45,6 @@ export function getPosts() {
 
   return posts.sort(sortByDate);
 }
+
+
+*/

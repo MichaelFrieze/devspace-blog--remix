@@ -3,7 +3,7 @@ import { getPosts } from '../lib/posts';
 import Post from '../components/post';
 
 export const loader = () => {
-  return getPosts().slice(0, 6);
+  return getPosts();
 };
 
 export const meta = () => {
