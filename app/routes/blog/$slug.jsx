@@ -2,10 +2,10 @@ import { Link, useLoaderData } from 'remix';
 import { getPosts } from '../../lib/posts';
 
 export const loader = async ({ params }) => {
-  const posts = getPosts();
-  // console.log(params);
+  const posts = await getPosts();
+  const postData = posts.filter((post) => post.slug === params.slug);
 
-  return posts;
+  return postData;
 };
 
 export default function PostPage() {
