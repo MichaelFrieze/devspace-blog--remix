@@ -1,7 +1,7 @@
 export default function PageIndex() {
   return (
     <div>
-      <h1>Blog Index</h1>
+      <h1>testing</h1>
     </div>
   );
 }
