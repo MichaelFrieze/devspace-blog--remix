@@ -8,8 +8,8 @@ import {
   useCatch,
 } from 'remix';
 
-import tailwindStylesUrl from './styles/tailwind.css';
 import globalStylesUrl from './styles/globals.css';
+import tailwindStylesUrl from './styles/tailwind.css';
 
 import Header from './components/header.jsx';
 
