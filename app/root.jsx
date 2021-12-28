@@ -8,10 +8,10 @@ import {
   useCatch,
 } from 'remix';
 
-import Header from './components/header.jsx';
-
 import tailwindStylesUrl from './styles/tailwind.css';
 import globalStylesUrl from './styles/globals.css';
+
+import Header from './components/header.jsx';
 
 export const links = () => {
   return [
