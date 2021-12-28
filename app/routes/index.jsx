@@ -13,7 +13,7 @@ export const meta = () => {
 };
 
 export default function Index() {
-  const posts = useLoaderData();
+  const posts = useLoaderData().slice(0, 6);
   return (
     <>
       <h1 className="text-5xl border-b-4 p-5 font-bold">Latest Posts</h1>
