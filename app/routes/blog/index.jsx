@@ -6,6 +6,7 @@ import Pagination from '../../components/pagination';
 
 export const loader = async ({ request }) => {
   const posts = await getPosts();
+  const POSTS_PER_PAGE = 6;
 
   const url = new URL(request.url);
   const page = Number(url.searchParams.get('page') ?? 1);
