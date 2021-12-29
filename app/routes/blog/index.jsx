@@ -9,11 +9,15 @@ export const loader = async ({ request }) => {
 
   const url = new URL(request.url);
   const page = Number(url.searchParams.get('page') ?? 1);
-  const pageSize = Number(url.searchParams.get('pageSize') ?? 6);
+
+  const uniqueCategories = [
+    ...new Set(posts.map((post) => post.frontmatter.category)),
+  ];
 
   return {
     posts,
     page,
+    uniqueCategories,
   };
 };
 
@@ -24,9 +28,7 @@ export const meta = () => {
 };
 
 export default function BlogIndex() {
-  const { posts, page } = useLoaderData();
-  const categories = posts.map((post) => post.frontmatter.category);
-  const uniqueCategories = [...new Set(categories)];
+  const { posts, page, uniqueCategories } = useLoaderData();
 
   return (
     <>
