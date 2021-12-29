@@ -10,13 +10,22 @@ export const loader = async ({ request }) => {
 
   const url = new URL(request.url);
   const page = Number(url.searchParams.get('page') ?? 1);
+  const pageIndex = page - 1;
 
   const uniqueCategories = [
     ...new Set(posts.map((post) => post.frontmatter.category)),
   ];
 
+  const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+  const orderedPosts = posts.slice(
+    pageIndex * POSTS_PER_PAGE,
+    (pageIndex + 1) * POSTS_PER_PAGE
+  );
+
   return {
-    posts,
+    posts: orderedPosts,
+    numPages,
     page,
     uniqueCategories,
   };
@@ -29,7 +38,7 @@ export const meta = () => {
 };
 
 export default function BlogIndex() {
-  const { posts, page, uniqueCategories } = useLoaderData();
+  const { posts, numPages, page, uniqueCategories } = useLoaderData();
 
   return (
     <>
@@ -41,7 +50,7 @@ export default function BlogIndex() {
               <Post key={index} post={post} />
             ))}
           </div>
-          <Pagination page={page} />
+          <Pagination page={page} numPages={numPages} />
         </div>
 
         <div className="w-1/4">
