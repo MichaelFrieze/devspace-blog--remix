@@ -2,8 +2,10 @@ import { useLoaderData, Link } from 'remix';
 import { getPosts } from '../lib/posts';
 import Post from '../components/post';
 
-export const loader = () => {
-  return getPosts();
+export const loader = async () => {
+  const posts = await getPosts();
+
+  return posts.slice(0, 6);
 };
 
 export const meta = () => {
@@ -13,7 +15,7 @@ export const meta = () => {
 };
 
 export default function Index() {
-  const posts = useLoaderData().slice(0, 6);
+  const posts = useLoaderData();
   return (
     <>
       <h1 className="text-5xl border-b-4 p-5 font-bold">Latest Posts</h1>
