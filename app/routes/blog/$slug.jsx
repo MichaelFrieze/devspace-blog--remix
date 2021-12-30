@@ -26,7 +26,7 @@ export const meta = ({ data }) => {
   }
 };
 
-export default function PostPage() {
+export default function BlogPost() {
   const {
     frontmatter: { title, category, date, cover_image, author, author_image },
     slug,
