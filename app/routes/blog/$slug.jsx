@@ -17,7 +17,7 @@ export const loader = async ({ params }) => {
 export const meta = ({ data }) => {
   if (data) {
     return {
-      title: data.frontmatter.title,
+      title: `DevSpace Blog | ${data.frontmatter.title}`,
     };
   } else {
     return {

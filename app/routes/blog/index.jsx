@@ -33,7 +33,7 @@ export const loader = async ({ request }) => {
 
 export const meta = () => {
   return {
-    title: 'DevSpace Blog | Index',
+    title: 'DevSpace Blog',
   };
 };
 
