@@ -17,7 +17,7 @@ export const loader = async ({ params }) => {
 export const meta = ({ data }) => {
   if (data) {
     return {
-      title: data.frontmatter.title,
+      title: `DevSpace Blog | ${data.frontmatter.title}`,
     };
   } else {
     return {
@@ -26,7 +26,7 @@ export const meta = ({ data }) => {
   }
 };
 
-export default function PostPage() {
+export default function BlogPost() {
   const {
     frontmatter: { title, category, date, cover_image, author, author_image },
     slug,
