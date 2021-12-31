@@ -12,6 +12,7 @@ import tailwindStylesUrl from './styles/tailwind.css';
 import globalStylesUrl from './styles/globals.css';
 
 import Header from './components/header.jsx';
+import Search from './components/search.jsx';
 
 export const links = () => {
   return [
@@ -58,6 +59,7 @@ function Layout({ children }) {
   return (
     <>
       <Header />
+      <Search />
       <main className="container mx-auto my-7">{children}</main>
     </>
   );

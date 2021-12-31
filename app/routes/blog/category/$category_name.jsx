@@ -5,14 +5,15 @@ import CategoryList from '../../../components/category-list';
 
 export const loader = async ({ params }) => {
   const posts = await getPosts();
-  const categoryName = await params.category_name.toLowerCase();
+  const categoryName = await params.category_name;
 
   const uniqueCategories = [
     ...new Set(posts.map((post) => post.frontmatter.category)),
   ];
 
   const categoryPosts = posts.filter(
-    (post) => post.frontmatter.category.toLowerCase() === categoryName
+    (post) =>
+      post.frontmatter.category.toLowerCase() === categoryName.toLowerCase()
   );
 
   return {
