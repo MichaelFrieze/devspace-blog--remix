@@ -8,8 +8,6 @@ import {
   useCatch,
 } from 'remix';
 
-import Layout from '~/components/layout.jsx';
-
 import tailwindStylesUrl from './styles/tailwind.css';
 import globalStylesUrl from './styles/globals.css';
 
@@ -44,9 +42,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Layout>
-          <Outlet />
-        </Layout>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}

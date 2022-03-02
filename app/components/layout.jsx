@@ -1,5 +1,5 @@
-import Header from '~/components/header.jsx';
-import Search from '~/components/search.jsx';
+import Header from '~/components/header';
+import Search from '~/components/search';
 
 export default function Layout({ children }) {
   return (

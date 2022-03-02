@@ -1,6 +1,8 @@
 import { useLoaderData, Link } from 'remix';
 import { getPosts } from '../lib/posts';
-import Post from '../components/post';
+
+import Layout from '~/components/layout';
+import Post from '~/components/post';
 
 export const loader = async () => {
   const posts = await getPosts();
@@ -17,7 +19,7 @@ export const meta = () => {
 export default function Index() {
   const posts = useLoaderData();
   return (
-    <>
+    <Layout>
       <h1 className="text-5xl border-b-4 p-5 font-bold">Latest Posts</h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -32,6 +34,6 @@ export default function Index() {
       >
         All Posts
       </Link>
-    </>
+    </Layout>
   );
 }
