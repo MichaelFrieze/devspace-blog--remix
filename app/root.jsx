@@ -27,9 +27,11 @@ export const links = () => {
 export const meta = () => {
   const description = 'Blogging about web development, design, and life';
   const keywords = 'devspace, blog, web development, design, life';
+  const title = 'DevSpace';
   return {
     description,
     keywords,
+    title,
   };
 };
 

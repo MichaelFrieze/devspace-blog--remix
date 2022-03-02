@@ -10,12 +10,6 @@ export const loader = async () => {
   return posts.slice(0, 6);
 };
 
-export const meta = () => {
-  return {
-    title: 'DevSpace Blog',
-  };
-};
-
 export default function Index() {
   const posts = useLoaderData();
   return (

@@ -27,7 +27,7 @@ export const loader = async ({ params }) => {
 
 export const meta = () => {
   return {
-    title: 'DevSpace Blog | Categories',
+    title: 'DevSpace | Categories',
   };
 };
 
