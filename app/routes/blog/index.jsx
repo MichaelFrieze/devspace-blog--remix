@@ -1,5 +1,7 @@
 import { useLoaderData, Link } from 'remix';
 import { getPosts } from '../../lib/posts';
+
+import Layout from '~/components/layout';
 import Post from '../../components/post';
 import CategoryList from '../../components/category-list';
 import Pagination from '../../components/pagination';
@@ -33,7 +35,7 @@ export const loader = async ({ request }) => {
 
 export const meta = () => {
   return {
-    title: 'DevSpace Blog',
+    title: 'DevSpace | Blog',
   };
 };
 
@@ -41,7 +43,7 @@ export default function BlogIndex() {
   const { posts, numPages, page, uniqueCategories } = useLoaderData();
 
   return (
-    <>
+    <Layout>
       <div className="flex justify-between">
         <div className="w-3/4 mr-10">
           <h1 className="text-5xl border-b-4 p-5 font-bold">Blog</h1>
@@ -57,6 +59,6 @@ export default function BlogIndex() {
           <CategoryList categories={uniqueCategories} />
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

@@ -1,6 +1,8 @@
 import { Link, useLoaderData, useCatch, useParams } from 'remix';
 import { getPosts } from '../../lib/posts';
 import { marked } from 'marked';
+
+import Layout from '~/components/layout';
 import CategoryLabel from '../../components/category-label';
 
 export const loader = async ({ params }) => {
@@ -17,7 +19,7 @@ export const loader = async ({ params }) => {
 export const meta = ({ data }) => {
   if (data) {
     return {
-      title: `DevSpace Blog | ${data.frontmatter.title}`,
+      title: `DevSpace | ${data.frontmatter.title}`,
     };
   } else {
     return {
@@ -34,7 +36,7 @@ export default function BlogPost() {
   } = useLoaderData();
 
   return (
-    <>
+    <Layout>
       <Link to="/blog">Go Back</Link>
       <div className="w-full px-10 py-6 bg-white rounded-lg shadow-md mt-6">
         <div className="flex justify-between items-center mt-4">
@@ -59,7 +61,7 @@ export default function BlogPost() {
           <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
